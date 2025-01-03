@@ -31,8 +31,12 @@ export function tokenize (sourceCode: string): Token[] {
             tokens.push(token(src.shift(), TokenType.BinaryOperator));
         } else if (src[0] == "*" || src[0] == "/") {
             tokens.push(token(src.shift(), TokenType.BinaryOperator));
+        } else if (src[0] == "=") {
+            tokens.push(token(src.shift(), TokenType.Equals));
+        } else if (src[0] == "let") {
+            tokens.push(token(src.shift(), TokenType.Let));
+        }
     }
-}
 
     return tokens;
 }
